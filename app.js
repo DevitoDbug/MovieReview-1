@@ -23,7 +23,6 @@ arrows.forEach((arrow, i) => {
 });
 
 //TOGGLE
-
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
   ".container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle"
@@ -35,6 +34,7 @@ ball.addEventListener("click", () => {
   });
   ball.classList.toggle("active");
 });
+
 
 //Array of the crime movies
 const movies = [
@@ -77,25 +77,48 @@ const Collection = {
 //Dynamic html
 const contentc = document.querySelector('.content-container')
 
-const container2 = `<div class="movie-list-container">
+// const container2 = `<div class="movie-list-container">
+// <h1 class="movie-list-title">${Collection.genre}</h1>
+// <div class="movie-list-wrapper">
+//   <div class="movie-list">
+// ${
+//   Collection.movies.map((movie)=>(
+//     `<div class="movie-list-item">
+//     <img class="movie-list-item-img" src="${movie.image}  " alt="">
+//     <span class="movie-list-item-title">${movie.title}</span>
+//     <p class="movie-list-item-desc">${movie.description}</p>
+//     <button class="movie-list-item-button">Watch</button>
+//     </div>`))
+// }
+  
+//   </div>
+//   </div>
+//   <i class="fas fa-chevron-right arrow"></i>
+//   </div>`
+
+// //updating to the html 
+// contentc.innerHTML += container2
+
+contentc.insertAdjacentHTML("beforeend", `
+<div class="movie-list-container">
 <h1 class="movie-list-title">${Collection.genre}</h1>
 <div class="movie-list-wrapper">
   <div class="movie-list">
 ${
-Collection.movies.map((movie)=>(
-  `<div class="movie-list-item">
-  <img class="movie-list-item-img" src="${movie.image}  " alt="">
-  <span class="movie-list-item-title">${movie.title}</span>
-  <p class="movie-list-item-desc">${movie.description}</p>
-  <button class="movie-list-item-button">Watch</button>
-  </div>`))
+  Collection.movies.map((movie)=>(
+    `<div class="movie-list-item">
+    <img class="movie-list-item-img" src="${movie.image}  " alt="">
+    <span class="movie-list-item-title">${movie.title}</span>
+    <p class="movie-list-item-desc">${movie.description}</p>
+    <button class="movie-list-item-button">Watch</button>
+    </div>`))
 }
   
   </div>
   </div>
-  </div>`
+  <i class="fas fa-chevron-right arrow"></i>
+  </div>
 
-//updating to the html 
-contentc.innerHTML += container2
+`)
 
 
